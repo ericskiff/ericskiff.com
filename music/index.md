@@ -1,2 +1,2 @@
 ## Updating the site!
-- For now, go here: https://soundcloud.com/eric-skiff/albums
+- For now, head to my [SoundCloud page] (https://soundcloud.com/eric-skiff/albums)
