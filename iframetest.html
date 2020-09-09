@@ -32,13 +32,13 @@
       gtag('config', 'UA-114555073-1');
     </script>
     
-    <!-- Load Stripe.js on your website. -->
+<!-- Load Stripe.js on your website. -->
 <script src="https://js.stripe.com/v3"></script>
 
 <!-- Create a button that your customers click to complete their purchase. Customize the styling to suit your branding. -->
 <button
   style="background-color:#6772E5;color:#FFF;padding:8px 12px;border:0;border-radius:4px;font-size:1em"
-  id="checkout-button-sku_Hoo6CviprU54gP"
+  id="checkout-button-price_1HPUdWARGbA3qwjTHqvAaYFv"
   role="link"
   type="button"
 >
@@ -49,22 +49,22 @@
 
 <script>
 (function() {
-  var stripe = Stripe('pk_test_h5Py7SmFrCPtg5Dw95cAH1sn');
+  var stripe = Stripe('pk_test_SYe210kD5t5lcTjiKRHVC8rY00qGlIwAJw');
 
-  var checkoutButton = document.getElementById('checkout-button-sku_Hoo6CviprU54gP');
+  var checkoutButton = document.getElementById('checkout-button-price_1HPUdWARGbA3qwjTHqvAaYFv');
   checkoutButton.addEventListener('click', function () {
     // When the customer clicks on the button, redirect
     // them to Checkout.
     stripe.redirectToCheckout({
-      lineItems: [{price: 'sku_Hoo6CviprU54gP', quantity: 1}],
-      mode: 'payment',
+      lineItems: [{price: 'price_1HPUdWARGbA3qwjTHqvAaYFv', quantity: 1}],
+      mode: 'subscription',
       // Do not rely on the redirect to the successUrl for fulfilling
       // purchases, customers may not always reach the success_url after
       // a successful payment.
       // Instead use one of the strategies described in
       // https://stripe.com/docs/payments/checkout/fulfillment
-      successUrl: window.location.protocol + '//theforem.co/success',
-      cancelUrl: window.location.protocol + '//theforem.co/canceled',
+      successUrl: window.location.protocol + '//loophq.com/success',
+      cancelUrl: window.location.protocol + '//loophq.com/canceled',
     })
     .then(function (result) {
       if (result.error) {
