@@ -39,23 +39,41 @@
       <div class="row">
         <div class="col-md-12">
         <h2>Peekskill Poetry Preview Panel</h2>
-        <textarea id="poetryInput" cols=36 rows=5 style="font-family:Tahoma arial sans; size: 10px"></textarea>
+        <!-- <textarea id="poetryInput" cols=36 rows=5 style="font-family:Tahoma arial sans; size: 10px">
+Dear Peekskill Poets,
+This sign is here to display poetry
+Create a 4 line poem
+Submit your work at 
+peekskillartgrants.org
+        </textarea> -->
+
+        <textarea id="poetryInput" cols=36 rows=5 style="font-family:Tahoma arial sans; size: 10px">
+You're Invited - Bre Pettis
+I want to see your soul shine
+I want to feel your heart in words
+I want my eyes to hear your voice
+Let these LEDS share your light
+        </textarea>
         <br>
-        <canvas id="myCanvas" width="192" height="64" style="background: #000; zoom: 3; letter-spacing:0px; font-smooth: never;
+        <canvas id="myCanvas" width="192" height="64" style="background: #000; zoom: 3; letter-spacing:0pt; font-smooth: never;
         -webkit-font-smoothing : none;"></canvas>
         </div>
       </div>
     </div>
 
     <script>
-      
+      $().ready(function(){
+        $("#poetryInput").keyup();
+      });
       $("#poetryInput").keyup(function(event){
         // console.log(event);
         var c = document.getElementById("myCanvas");
         var ctx = c.getContext("2d");
         ctx.clearRect(0,0, c.width, c.height)
         ctx.font = "11px Tahoma";
-        ctx.fillStyle = "red";
+        ctx.fillStyle = "#ff0000";
+        ctx.shadowColor = "#ff6666";
+        ctx.shadowBlur = "3";
         t = $(event.target).val();
         let lines = t.split("\n");
         lines.forEach(function(line, index){
