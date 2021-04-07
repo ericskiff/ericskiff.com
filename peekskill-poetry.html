@@ -55,14 +55,8 @@ I want my eyes to hear your voice
 Let these LEDS share your light
         </textarea>
         <br>
-        <canvas id="myCanvas" width="192" height="64" style="background: #000; zoom: 3; letter-spacing:0pt; font-smooth: never;
-        -webkit-font-smoothing : none;"></canvas>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-md-12">
         <canvas id="myCanvas2" width="384" height="128" style="background: #000; zoom: 2;"></canvas>
+        
         </div>
       </div>
     </div>
@@ -73,13 +67,7 @@ Let these LEDS share your light
       });
       $("#poetryInput").keyup(function(event){
         // console.log(event);
-        var c = document.getElementById("myCanvas");
-        var ctx = c.getContext("2d");
-        ctx.clearRect(0,0, c.width, c.height)
-        ctx.font = "11px Tahoma";
-        ctx.fillStyle = "#ff0000";
-        ctx.shadowColor = "#ff6666";
-        ctx.shadowBlur = "3";
+        
         t = $(event.target).val();
         let lines = t.split("\n");
 
@@ -94,7 +82,6 @@ Let these LEDS share your light
         // 
 
         lines.forEach(function(line, index){
-          ctx.fillText(line, 2, (12 * (index+1)));
           ctx2.fillText(line, 2, (24 * (index+1)));
         });
 
