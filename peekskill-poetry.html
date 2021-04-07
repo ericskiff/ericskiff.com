@@ -59,6 +59,12 @@ Let these LEDS share your light
         -webkit-font-smoothing : none;"></canvas>
         </div>
       </div>
+
+      <div class="row">
+        <div class="col-md-12">
+        <canvas id="myCanvas2" width="384" height="128" style="background: #000; zoom: 2;"></canvas>
+        </div>
+      </div>
     </div>
 
     <script>
@@ -76,9 +82,23 @@ Let these LEDS share your light
         ctx.shadowBlur = "3";
         t = $(event.target).val();
         let lines = t.split("\n");
+
+        // preview panel 2
+        var c2 = document.getElementById("myCanvas2");
+        var ctx2 = c2.getContext("2d");
+        ctx2.clearRect(0,0, c2.width, c2.height)
+        ctx2.font = "22px Tahoma";
+        ctx2.fillStyle = "#ff0000";
+        ctx2.shadowColor = "#ff0000";
+        ctx2.shadowBlur = "4"; 
+        // 
+
         lines.forEach(function(line, index){
           ctx.fillText(line, 2, (12 * (index+1)));
+          ctx2.fillText(line, 2, (24 * (index+1)));
         });
+
+        
       });
       
     </script>
