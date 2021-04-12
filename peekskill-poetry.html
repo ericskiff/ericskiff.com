@@ -38,25 +38,32 @@
       <div class="row"><div class="col-md-12">&nbsp;</div></div>
       <div class="row">
         <div class="col-md-12">
+        
+
         <h2>Peekskill Poetry Preview Panel</h2>
-        <!-- <textarea id="poetryInput" cols=36 rows=5 style="font-family:Tahoma arial sans; size: 10px">
-Dear Peekskill Poets,
-This sign is here to display poetry
-Create a 4 line poem
-Submit your work at 
-peekskillartgrants.org
-        </textarea> -->
+        <div><label>Enter your poem here</label></div>
 
         <textarea id="poetryInput" cols=36 rows=5 style="font-family:Tahoma arial sans; size: 10px">
 You're Invited - Bre Pettis
 I want to see your soul shine
 I want to feel your heart in words
 I want my eyes to hear your voice
-Let these LEDS share your light
-        </textarea>
-        <br>
-        <canvas id="myCanvas2" width="384" height="128" style="background: #000; zoom: 1.75;"></canvas>
+Let these LEDS share your light</textarea>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div><label>Here's how it will appear on the LED board</label></div>
+          <canvas id="myCanvas2" width="384" height="128" style="background: #000; zoom: 1.75;"></canvas>
         
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div><label>Click this to copy your poem when you're satisfied</label></div>
+          <button class="btn btn-primary" id="btnCopy">
+            Copy to Clipboard
+          </button>
         </div>
       </div>
     </div>
@@ -64,7 +71,10 @@ Let these LEDS share your light
     <script>
       $().ready(function(){
         $("#poetryInput").keyup();
+
       });
+
+      
       $("#poetryInput").keyup(function(event){
         // console.log(event);
         
@@ -86,6 +96,16 @@ Let these LEDS share your light
         });
 
         
+      });
+
+      $("#btnCopy").click(function(event){
+        let text = $("#poetryInput").val();
+        navigator.clipboard.writeText(text).then(function() {
+          console.log('Async: Copying to clipboard was successful!');
+          alert("Your poem was copied!");
+        }, function(err) {
+          console.error('Async: Could not copy text: ', err);
+        });
       });
       
     </script>
